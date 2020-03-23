@@ -1,0 +1,54 @@
+{
+    "name": "7981620/alfabankapi",
+    "description": "Alfa Bank Payment REST API",
+    "keywords": [
+        "7981620",
+        "alfabankapi"
+    ],
+    "homepage": "https://github.com/7981620/alfabankapi",
+    "license": "GPL-2.0-or-later",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Oleksii Berkovskii",
+            "email": "7981620@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "illuminate/support": "^6.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Agenta\\Alfabankapi\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Agenta\\Alfabankapi\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Agenta\\Alfabankapi\\AlfabankapiServiceProvider"
+            ],
+            "aliases": {
+                "Alfabankapi": "Agenta\\Alfabankapi\\AlfabankapiFacade"
+            }
+        }
+    }
+}
