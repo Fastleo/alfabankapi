@@ -4,9 +4,6 @@ namespace Agenta\Alfabankapi;
 
 use Illuminate\Support\Facades\Facade;
 
-/**
- * @see \7981620\Alfabankapi\Skeleton\SkeletonClass
- */
 class AlfabankapiFacade extends Facade
 {
     /**
