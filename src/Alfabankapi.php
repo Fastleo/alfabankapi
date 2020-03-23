@@ -63,7 +63,7 @@ class Alfabankapi
         $this->login = env('ALFABANK_LOGIN');
         $this->password = env('ALFABANK_PASSWORD');
         $this->token = env('ALFABANK_TOKEN');
-        $this->callbackUrl = env('ALFABANK_URL_FAIL');
+        $this->callbackUrl = env('ALFABANK_URL_STATUS');
         $this->client = new Client();
     }
 
