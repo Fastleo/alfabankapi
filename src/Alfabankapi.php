@@ -18,7 +18,7 @@ class Alfabankapi
     protected $token;
     protected $password;
     protected $callbackUrl;
-    protected $lang = 'ua';
+    protected $lang;
 
     protected $orderStatus = [
         0 => 'Заказ зарегистрирован, но не оплачен',
@@ -64,6 +64,7 @@ class Alfabankapi
         $this->password = env('ALFABANK_PASSWORD');
         $this->token = env('ALFABANK_TOKEN');
         $this->callbackUrl = env('ALFABANK_URL_STATUS');
+        $this->lang = env('ALFABANK_LANG');
         $this->client = new Client();
     }
 
@@ -84,7 +85,7 @@ class Alfabankapi
     )
     {
         //строка описания должна быть максимум 90 символов и не содержать %+\n\r
-        $description = mb_substr(str_replace(['%', '+', "\n", "\r"], '', $description), 0, 30);
+        $description = mb_substr(str_replace(['%', '+', "\n", "\r"], '', $description), 0, 90);
 
         $params = [
             'userName' => $this->login,
