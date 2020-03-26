@@ -297,7 +297,7 @@ class Alfabankapi
                 'form_params' => $params
             ]);
         } catch (\Exception $e) {
-            echo '[!] ошибка обращения к API серверу: ' . $e->getMessage() . PHP_EOL;
+//            echo '[!] ошибка обращения к API серверу: ' . $e->getMessage() . PHP_EOL;
             return false;
         }
 
