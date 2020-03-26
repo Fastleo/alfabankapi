@@ -5,6 +5,7 @@ namespace Agenta\Alfabankapi;
 use Carbon\Carbon;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 /**
  * Class Alfabankapi
@@ -109,6 +110,7 @@ class Alfabankapi
             }
         }
 
+        Log::error(get_class($this) . ' -> ' . __FUNCTION__, $params);
         return false;
     }
 
@@ -129,6 +131,8 @@ class Alfabankapi
         if ($request = $this->sendAPI('/getOrderStatus.do', $params)) {
             return $request;
         }
+
+        Log::error(get_class($this) . ' -> ' . __FUNCTION__);
         return false;
     }
 
@@ -151,6 +155,8 @@ class Alfabankapi
         if ($request = $this->sendAPI('/getOrderStatusExtended.do', $params)) {
             return $request;
         }
+
+        Log::error(get_class($this) . ' -> ' . __FUNCTION__);
         return false;
     }
 
@@ -219,12 +225,14 @@ class Alfabankapi
         try {
             $from = Carbon::parse($from)->format('YmdHis');
         } catch (\Exception $e) {
+            Log::error(get_class($this) . ' -> ' . __FUNCTION__ . ' ' . $e->getMessage());
             return false;
         }
 
         try {
             $to = Carbon::parse($to)->format('YmdHis');
         } catch (\Exception $e) {
+            Log::error(get_class($this) . ' -> ' . __FUNCTION__ . ' ' . $e->getMessage());
             return false;
         }
 
@@ -298,6 +306,7 @@ class Alfabankapi
             ]);
         } catch (\Exception $e) {
 //            echo '[!] ошибка обращения к API серверу: ' . $e->getMessage() . PHP_EOL;
+            Log::error(get_class($this) . ' -> ' . __FUNCTION__ . ' ' . $e->getMessage());
             return false;
         }
 
