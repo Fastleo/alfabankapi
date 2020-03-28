@@ -1,6 +1,6 @@
 {
     "name": "7981620/alfabankapi",
-    "description": "Alfa Bank Payment REST API",
+    "description": "Alfa Bank Payment REST API for Laravel 6.x",
     "keywords": [
         "7981620",
         "alfabankapi"
@@ -16,8 +16,14 @@
         }
     ],
     "require": {
-        "php": "^7.1",
-        "illuminate/support": "^6.0"
+        "php": "^7.3",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-libxml": "*",
+        "ext-openssl": "*",
+        "ext-simplexml": "*",
+        "illuminate/support": "^6.0",
+        "guzzlehttp/guzzle": "^6.5"
     },
     "require-dev": {
         "orchestra/testbench": "^4.0",
